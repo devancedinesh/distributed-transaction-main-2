@@ -26,7 +26,7 @@ public class DeliveryController {
 	@KafkaListener(topics = "new-stock", groupId = "stock-group")
 	public void deliverOrder(String event) throws JsonMappingException, JsonProcessingException {
 		System.out.println("Inside ship order for order "+event);
-		
+		System.out.println("You are just testing the git features");
 		Delivery shipment = new Delivery();
 		DeliveryEvent inventoryEvent = new ObjectMapper().readValue(event, DeliveryEvent.class);
 		CustomerOrder order = inventoryEvent.getOrder();
